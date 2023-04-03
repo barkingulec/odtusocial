@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "369411867126",
+    "project_id": "odtusocial-a15f7",
+    "storage_bucket": "odtusocial-a15f7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369411867126:android:011588e6727a644afa47d7",
+        "android_client_info": {
+          "package_name": "com.example.social"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369411867126-tcrhubmfc6flf0v5q52ma44jkb9mrjia.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKvfn2HEP7Q5vHwaLLq8DlwGV5aUZVqyA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369411867126-tcrhubmfc6flf0v5q52ma44jkb9mrjia.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
