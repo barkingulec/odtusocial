@@ -73,7 +73,7 @@
             android:resource="@mipmap/ic_launcher" />
 
         <meta-data android:name="com.google.android.geo.API_KEY"
-               android:value="AIzaSyA_0d5i-YxjYWjhKfJfqvxHV__N0wjxAd4"/>
+               android:value="HIDDEN_KEY"/>
 
         <service
             android:name=".MyFirebaseMessagingService"
