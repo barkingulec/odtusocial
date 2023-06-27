@@ -4,6 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:social/models/user.dart' as model;
 import 'package:social/services/auth/storage_methods.dart';
 
+import '../../utils/colors.dart';
+
 class AuthMethods {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -35,16 +37,27 @@ class AuthMethods {
           email: email,
           password: password,
         );
-        User? user = cred.user;
-        user?.updateDisplayName(username);
+
+        cred.user?.updateDisplayName(username);
 
         // String photoUrl =
         //     await StorageMethods().uploadImageToStorage('profilePics', file, false);
 
+        String firstName = "";
+        String lastName = "";
+        var name = email.split('@');
+
+        if (name[0].contains(".")){
+          var fl = name[0].split('.');
+          firstName = fl[0];
+          lastName = fl[1];
+        }
+
         model.User _user = model.User(
+          comments: [],
           username: username,
           uid: cred.user!.uid,
-          photoUrl: "https://images.unsplash.com/photo-1596638787647-904d822d751e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2hpb258ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+          photoUrl: logo,
           email: email,
           bio: "",
           department: "",
@@ -52,6 +65,15 @@ class AuthMethods {
           bookmarkedCom: [],
           notifications: [],
           notifications_new: [],
+          firstName: firstName,
+          lastName: lastName,
+          isAdmin: false,
+          enrolledComData: [],
+          pastComData: [],
+          admins: [],
+          roles: [],
+          type: "User",
+          participation: [],
         );
         
         await _firestore

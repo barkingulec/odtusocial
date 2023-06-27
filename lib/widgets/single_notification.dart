@@ -68,8 +68,8 @@ class _SingleNotificationState extends State<SingleNotification> {
   
   @override
   Widget build(BuildContext context) {
-    return isLoading ? const Center( child: CircularProgressIndicator() )
-      : SingleChildScrollView(
+    return isLoading ? const Center( child: Text("") ) : 
+      SingleChildScrollView(
         child: InkWell(
           onTap: () {
             Navigator.of(context).push(
@@ -96,7 +96,7 @@ class _SingleNotificationState extends State<SingleNotification> {
                 Row(
                   children: <Widget>[
                     CustomImage(
-                                communityData['image'],
+                                eventData['image'],
                                 radius: 18,
                                 width: 75,
                                 height: 75,
@@ -110,7 +110,7 @@ class _SingleNotificationState extends State<SingleNotification> {
                               overflow: TextOverflow.ellipsis,
                               textAlign: TextAlign.justify,
                               softWrap: false,
-                              style: const TextStyle(fontSize: 14, color: gray),
+                              style: TextStyle(fontSize: 14, color: black.withOpacity(0.7)),
                               ),
                         const SizedBox(height: 5),
                         Text("${eventData['name']}",
@@ -141,13 +141,13 @@ class _SingleNotificationState extends State<SingleNotification> {
 
   forWhom() {
     if (eventData['for_whom'][0] == true) {
-      return const Text("Admins only", style: TextStyle(fontSize: 12, color: gray), overflow: TextOverflow.ellipsis,);
+      return const Text("Admins only", style: TextStyle(fontSize: 12, color: pink), overflow: TextOverflow.ellipsis,);
     }
     else if (eventData['for_whom'][1] == true) {
-      return const Text("Members only", style: TextStyle(fontSize: 12, color: gray), overflow: TextOverflow.ellipsis,);
+      return const Text("Members only", style: TextStyle(fontSize: 12, color: pink), overflow: TextOverflow.ellipsis,);
     }
     else {
-      return const Text("For everyone", style: TextStyle(fontSize: 12, color: gray), overflow: TextOverflow.ellipsis,);
+      return const Text("For everyone", style: TextStyle(fontSize: 12, color: pink), overflow: TextOverflow.ellipsis,);
     }
   }
 

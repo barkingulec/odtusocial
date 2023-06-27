@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../utils/colors.dart';
 
 class CustomImage extends StatelessWidget {
-  const CustomImage(this.image, {super.key, this.width = 100, this.height = 100, this.bgColor, 
+  CustomImage(this.image, {super.key, this.width = 100, this.height = 100, this.bgColor, 
     this.borderWidth = 0, this.borderColor, this.trBackground = false, this.fit = BoxFit.cover,
     this.isNetwork = true, this.radius = 50, this.borderRadius, this.isShadow = true});
   final String image;
@@ -15,26 +15,32 @@ class CustomImage extends StatelessWidget {
   final Color? borderColor;
   final Color? bgColor;
   final bool trBackground;
-  final bool isNetwork;
+  bool isNetwork;
   final double radius;
   final BorderRadiusGeometry? borderRadius;
   final BoxFit fit;
 
   @override
   Widget build(BuildContext context) {
+    if (image.split("/")[0] == "assets") {
+      isNetwork = false;
+    }
     return 
-      Container(width: width, height: height,
+      Container(
+        
+        width: width, 
+        height: height,
         decoration: BoxDecoration(
           color: bgColor,
           borderRadius: borderRadius ?? BorderRadius.circular(radius),
-          boxShadow: [
-            if(isShadow) BoxShadow(
-              color: black.withOpacity(0.1),
-              spreadRadius: 1,
-              blurRadius: 1,
-              offset: Offset(0, 1), // changes position of shadow
-            ),
-          ],
+          // boxShadow: [
+          //   if(isShadow) BoxShadow(
+          //     color: black.withOpacity(0.1),
+          //     spreadRadius: 1,
+          //     blurRadius: 1,
+          //     offset: Offset(0, 1), // changes position of shadow
+          //   ),
+          // ],
         ),
         child: isNetwork ?
           CachedNetworkImage(
@@ -45,7 +51,9 @@ class CustomImage extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: borderRadius ?? BorderRadius.circular(radius),
                 image: DecorationImage(
-                  image: imageProvider, fit: fit),
+                  image: imageProvider,
+                  fit: image == "https://firebasestorage.googleapis.com/v0/b/odtusocial-a15f7.appspot.com/o/assets%2Fmain-small-logo-transparent.png?alt=media&token=1c15bfaa-bc06-4ef4-a48b-2aae1b318e03"
+                             ? fit : BoxFit.contain),
               ),
             ),
           )

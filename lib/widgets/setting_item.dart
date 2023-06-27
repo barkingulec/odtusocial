@@ -7,15 +7,20 @@ class SettingItem extends StatelessWidget {
   final String? leadingIcon;
   final Color leadingIconColor;
   final Color bgIconColor;
+  final Color boxBackgroundColor;
+  final Color trailingIconColor;
   final String title;
   final GestureTapCallback? onTap;
-  const SettingItem({ Key? key, required this.title, this.onTap, this.leadingIcon, this.leadingIconColor = Colors.white, this.bgIconColor =  white}) : super(key: key);
+  const SettingItem({ Key? key, required this.title, this.onTap, this.leadingIcon, this.leadingIconColor = Colors.white, this.bgIconColor =  white, this.boxBackgroundColor = Colors.transparent, this.trailingIconColor = pink,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
+        decoration: BoxDecoration(
+                color: boxBackgroundColor,
+              ),
         padding: const EdgeInsets.only(top: 10, bottom: 10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -27,7 +32,7 @@ class SettingItem extends StatelessWidget {
                 color: bgIconColor,
                 shape: BoxShape.circle
               ),
-              child: SvgPicture.asset(leadingIcon!, color: leadingIconColor, width: 22, height: 22,),
+              child: SvgPicture.asset(leadingIcon!, color: leadingIconColor, width: 25, height: 25,),
             ),
             SizedBox(width: 10,),
             Expanded(
@@ -38,7 +43,7 @@ class SettingItem extends StatelessWidget {
             ),
             Icon(
               Icons.arrow_forward_ios,
-              color: Colors.grey,
+              color: trailingIconColor,
               size: 17,
             )
           ]

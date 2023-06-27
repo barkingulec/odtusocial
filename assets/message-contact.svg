@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg width="800px" height="800px" viewBox="0 0 128 128" data-name="Layer 4" id="Layer_4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<style>.cls-1,.cls-4{fill:none;}.cls-2{fill:#231f20;}.cls-3{clip-path:url(#clip-path);}.cls-4{stroke:#231f20;stroke-linejoin:bevel;stroke-width:10px;}</style>
+<clipPath id="clip-path">
+<rect class="cls-1" height="47.97" width="66.45" x="30.42" y="40.02"/>
+</clipPath>
+</defs>
+<path class="cls-2" d="M97.83,35.63,102,39.77V88.23l-4.14,4.14H30.17L26,88.23V39.77l4.14-4.14H97.83m4.14-10H26l-10,10V92.37l10,10H102l10-10V35.63l-10-10Z"/>
+<g class="cls-3">
+<polyline class="cls-4" points="16.03 35.22 64 73.59 111.97 35.22"/>
+</g>
+</svg>

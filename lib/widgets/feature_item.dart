@@ -77,7 +77,8 @@ class _FeatureItem extends State<FeatureItem> {
           child: Stack(
             children: [
               CustomImage(widget.data["image"],
-                width: double.infinity, height: 190,
+                width: double.infinity, 
+                height: 190,
                 radius: 15,
               ),
               Positioned(
@@ -85,7 +86,7 @@ class _FeatureItem extends State<FeatureItem> {
                 child: Container(
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: pink,
+                    color: pink.withOpacity(0.85),
                     borderRadius: BorderRadius.circular(20),
                     boxShadow: [
                       BoxShadow(
@@ -100,7 +101,7 @@ class _FeatureItem extends State<FeatureItem> {
                     children: [
                       SvgPicture.asset("assets/schedule.svg", color: white, width: 20, height: 20,),
                       const SizedBox(width: 5,),
-                      Text("$eventNumber Upcoming Events", 
+                      Text("$eventNumber Events", 
                         style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
                       ),
                     ],

@@ -51,15 +51,34 @@ class _MyCommunitiesViewState extends State<MyCommunitiesView> {
   @override
   Widget build(BuildContext context) {
     return isLoading ? const Center(child: CircularProgressIndicator()) : Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            backgroundColor: whiteGray,
-            pinned: true,
-            title: getAppBar(),
-          ),
-          SliverList(delegate: getCommunities(),),
-        ],
+      body: Container(
+        // decoration: BoxDecoration(
+        //                 gradient: LinearGradient(
+        //                   begin: Alignment.topLeft,
+        //                   end: Alignment.bottomRight,
+        //                   //stops: [0, 1],
+        //                   colors: [
+        //                     // pink.withOpacity(.06), 
+        //                     // pink.withOpacity(.45),
+        //                     pink.withOpacity(.01),
+        //                     pink.withOpacity(.02),
+        //                     pink.withOpacity(.04),
+        //                     pink.withOpacity(.06),
+        //                     pink.withOpacity(.085),
+        //                     pink.withOpacity(.12),
+        //                   ],
+        //                 )
+        //               ),
+        child: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              backgroundColor: whiteGray.withOpacity(0),
+              pinned: true,
+              title: getAppBar(),
+            ),
+            SliverList(delegate: getCommunities(),),
+          ],
+        ),
       ),
     );
   }
@@ -68,7 +87,7 @@ class _MyCommunitiesViewState extends State<MyCommunitiesView> {
         child: Row(
           children: [
             Text(
-              "My Communities",
+              "My Clubs & Societies",
               style: TextStyle(color: black, fontWeight: FontWeight.w600, fontSize: 24),
             ),
           ],

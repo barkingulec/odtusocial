@@ -16,7 +16,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.0.0+1
+version: 1.1.8+29
 
 environment:
   sdk: '>=2.19.2 <3.0.0'
@@ -28,35 +28,81 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  add_2_calendar: ^2.2.3
+  android_intent_plus: ^4.0.1
   badges: ^3.0.2
   cached_network_image: ^3.2.3
   carousel_slider: ^4.2.1
   cloud_firestore: ^4.4.2
   cupertino_icons: ^1.0.2
+  file_picker: ^5.2.10
   firebase_analytics: ^10.1.1
   firebase_auth: ^4.2.6
   firebase_core: ^2.5.0
+  firebase_messaging: ^14.6.0
   firebase_storage: ^11.0.13
   flutter:
     sdk: flutter
-  flutter_svg: ^0.22.0
+  flutter_countdown_timer: ^4.1.0
+  flutter_local_notifications: ^14.0.0+2
+  flutter_svg: ^2.0.5
+  geocoding: ^2.1.0
+  geolocator: ^9.0.2
+  google_fonts: ^4.0.4
+  google_maps_flutter: ^2.3.0
+  grouped_list: ^5.1.2
+  http: ^0.13.6
   image_picker: ^0.8.6+2
+  in_app_update: ^4.0.1
   intl: ^0.17.0
   multi_stream_builder: ^0.0.1
+  package_info_plus: ^3.1.2
   provider: ^6.0.5
+  pull_to_refresh: ^2.0.0
   readmore: ^2.2.0
+  rxdart: ^0.27.7
+  slide_popup_dialog_null_safety: ^1.0.0
+  store_redirect: ^2.0.1
+  upgrader: ^6.3.0
+  url_launcher: ^6.1.10
   uuid: ^3.0.7
 
 dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/app_logo.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path: "assets/app_logo.png"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
+  windows:
+    generate: true
+    image_path: "assets/app_logo.png"
+    icon_size: 48 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "assets/app_logo.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
 flutter:
-
+  # fonts:
+  #   - family: Raleway
+  #     fonts:
+  #       - asset: fonts/Raleway-Regular.ttf
+  #       - asset: fonts/Raleway-Medium.ttf
+  #         weight: 500
+  #       - asset: assets/fonts/Raleway-SemiBold.ttf
+  #         weight: 600
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -84,6 +130,12 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
-  #
+
+  
+    #  - family: Schyler
+    #    fonts:
+    #      - asset: fonts/Schyler-Regular.ttf
+    #      - asset: fonts/Schyler-Italic.ttf
+    #        style: italic
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

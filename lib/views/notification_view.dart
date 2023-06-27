@@ -44,6 +44,7 @@ class _NotificationViewState extends State<NotificationView> {
           .get();
       userData = userSnap.data()!;
       notifications = userData['notifications'];
+      notifications = notifications.reversed.toList();
 
     } catch (e) {
       showSnackBar(context, e.toString());
@@ -56,25 +57,29 @@ class _NotificationViewState extends State<NotificationView> {
   @override
   Widget build(BuildContext context) {
     return isLoading ? const Center( child: CircularProgressIndicator() )
-      : SafeArea(
-        child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: whiteGray,
-            iconTheme: const IconThemeData(color: black),
-            title: const Text(
-              "Notifications",
-              style: TextStyle(color: black),),
-            ),
-          body: Container(
-            child: notifications.isNotEmpty ? ListView.builder(
-              itemCount: notifications.length,
-              itemBuilder: (context, index) {
-                return SingleNotification(eventId: notifications[index]['eventId'], communityId: notifications[index]['communityId'], isNew: widget.newLength - index > 0 ? true : false);
-              },
-            )
-            : const Center(child: Text("There is no notification.")),
-            ),
+      : Scaffold(
+        appBar: AppBar(
+          iconTheme: const IconThemeData(color: black),
+      leading: IconButton(
+            icon: Icon(Icons.arrow_back_ios_new, color: black.withOpacity(.7)),
+            onPressed: () => Navigator.of(context).pop(),
           ),
-      );
+      centerTitle: true,
+      elevation: 0,
+      backgroundColor: whiteGray.withOpacity(0),
+          title: const Text(
+            "Notifications",
+            style: TextStyle(color: black),),
+          ),
+        body: Container(
+          child: notifications.isNotEmpty ? ListView.builder(
+            itemCount: notifications.length,
+            itemBuilder: (context, index) {
+              return SingleNotification(eventId: notifications[index]['eventId'], communityId: notifications[index]['communityId'], isNew: widget.newLength - index > 0 ? true : false);
+            },
+          )
+          : const Center(child: Text("There is no notification.")),
+          ),
+        );
   }
 }

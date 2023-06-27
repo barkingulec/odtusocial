@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:firebase_auth/firebase_auth.dart';
@@ -9,23 +10,46 @@ class StorageMethods {
   final FirebaseStorage _storage = FirebaseStorage.instance;
 
   // adding image to firebase storage
-  Future<String> uploadImageToStorage(String childName, Uint8List file, bool isPost) async {
-    // creating location to our firebase storage
+  // Future<String> uploadImageToStorage(String childName, Uint8List file, bool isPost) async {
+  //   // creating location to our firebase storage
     
-    Reference ref =
-        _storage.ref().child(childName).child(_auth.currentUser!.uid);
-    if(isPost) {
-      String id = const Uuid().v1();
-      ref = ref.child(id);
+  //   Reference ref =
+  //       _storage.ref().child(childName).child(_auth.currentUser!.uid);
+  //   if(isPost) {
+  //     String id = const Uuid().v1();
+  //     ref = ref.child(id);
+  //   }
+
+  //   // putting in uint8list format -> Upload task like a future but not future
+  //   UploadTask uploadTask = ref.putData(
+  //     file
+  //   );
+
+  //   TaskSnapshot snapshot = await uploadTask;
+  //   String downloadUrl = await snapshot.ref.getDownloadURL();
+  //   return downloadUrl;
+  // }
+
+  Future<String> uploadFile(String filePath, String fileName) async {
+    File file = File(filePath);
+
+    try {
+      await _storage.ref('images/$fileName').putFile(file);
+    } on FirebaseException catch (e) {
+      print(e);
     }
 
-    // putting in uint8list format -> Upload task like a future but not future
-    UploadTask uploadTask = ref.putData(
-      file
-    );
+    String downloadURL = await _storage.ref('images/$fileName').getDownloadURL();
 
-    TaskSnapshot snapshot = await uploadTask;
-    String downloadUrl = await snapshot.ref.getDownloadURL();
-    return downloadUrl;
+    return downloadURL;
   }
+
+  Future<String> downloadURL(String imageName) async {
+    String downloadURL = await _storage.ref('images/$imageName').getDownloadURL();
+
+    return downloadURL;
+  }
+
+  // to see all images: https://www.youtube.com/watch?v=sM-WMcX66FI
+  // Future<ListResult> listFiles() async {}
 }

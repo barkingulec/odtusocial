@@ -48,7 +48,13 @@ class _BookmarksViewsState extends State<BookmarksViews> {
     return Scaffold(
       appBar: AppBar(
       iconTheme: const IconThemeData(color: black),
-      backgroundColor: whiteGray,
+      leading: IconButton(
+            icon: Icon(Icons.arrow_back_ios_new, color: black.withOpacity(.7)),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+      centerTitle: true,
+      elevation: 0,
+      backgroundColor: whiteGray.withOpacity(0),
       title: const Text(
         "Bookmarks",
         style: TextStyle(
@@ -60,7 +66,7 @@ class _BookmarksViewsState extends State<BookmarksViews> {
         slivers: [
           SliverList(delegate: getCommunities(),),
         ],
-      ): const Center(child: Text("You have not bookmarked any community.")),
+      ): const Center(child: Text("You have not bookmarked any society.")),
     );
   }
     getCommunities() {

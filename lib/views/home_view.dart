@@ -107,7 +107,7 @@ class HomeViewState extends State<HomeView> {
           BottomNavigationBarItem(
             icon: Padding(
               padding: const EdgeInsets.only(top: 8),
-              child: SvgPicture.asset("assets/schedule.svg", color: (_page == 2) ? pink : gray, width: 26, height: 26,)
+              child: SvgPicture.asset("assets/message.svg", color: (_page == 2) ? pink : gray, width: 26, height: 26,)
             ),
             label: '',
             backgroundColor: white,

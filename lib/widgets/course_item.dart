@@ -85,7 +85,7 @@ class _CourseItem extends State<CourseItem> {
                 child: Container(
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: pink,
+                    color: pink.withOpacity(.85),
                     borderRadius: BorderRadius.circular(20),
                     boxShadow: [
                       BoxShadow(

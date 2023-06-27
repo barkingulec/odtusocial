@@ -5,10 +5,12 @@ import 'package:social/views/my_communities_view.dart';
 import 'package:social/views/profile_view.dart';
 import 'package:social/views/search_view.dart';
 
+import '../views/chat_view.dart';
+
 List<Widget> homeScreenItems = [
   const FeedView(),
   const SearchView(),
-  const MyCommunitiesView(),
+  ChatsPage(),
   ProfileView(
     uid: FirebaseAuth.instance.currentUser!.uid,
   ),
